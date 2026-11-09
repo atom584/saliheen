@@ -15,6 +15,7 @@
   <script src="<?= url('/portal/account.js') ?>" defer></script>
   <script src="<?= url('/portal/views.js') ?>" defer></script>
   <script src="<?= url('/portal/profile.js') ?>" defer></script>
+  <script src="<?= url('/portal/paging.js') ?>" defer></script>
 </head>
 <body class="portal client">
   <a class="skip" href="#main">Skip to content</a>
@@ -73,11 +74,11 @@
       <a class="sb-link" href="#"><svg viewBox="0 0 24 24"><use href="#i-package"/></svg><span>My Subscription</span></a>
       <a class="sb-link" href="#"><svg viewBox="0 0 24 24"><use href="#i-cog"/></svg><span>Account Settings</span></a>
       <p class="sb-label">Services</p>
-      <a class="sb-link" href="<?= url('/explore-services/') ?>"><svg viewBox="0 0 24 24"><use href="#i-plus"/></svg><span>Explore More Services</span></a>
+      <a class="sb-link" href="<?= url('/explore-services') ?>"><svg viewBox="0 0 24 24"><use href="#i-plus"/></svg><span>Explore More Services</span></a>
     </nav>
     <div class="sb-foot">
       <a class="sb-back" href="<?= url('/') ?>"><svg viewBox="0 0 24 24"><use href="#i-back"/></svg>Public website</a>
-      <a class="sb-back" href="<?= url('/login/') ?>" data-logout="<?= url('/api/auth/logout.php') ?>" data-login="<?= url('/login/') ?>" data-csrf="<?= e(csrf_token()) ?>">Sign out</a>
+      <a class="sb-back" href="<?= url('/login') ?>" data-logout="<?= url('/api/auth/logout.php') ?>" data-login="<?= url('/login') ?>" data-csrf="<?= e(csrf_token()) ?>">Sign out</a>
     </div>
   </aside>
   <div class="sb-scrim" id="scrim"></div>
@@ -106,7 +107,7 @@
           <span class="company-chip"><?= e(ucfirst((string) ($user['company_role'] ?? 'admin'))) ?> · Company verified</span>
         </div>
         <div class="hero-actions">
-          <a class="btn gold" href="<?= url('/explore-services/') ?>"><svg viewBox="0 0 24 24"><use href="#i-plus"/></svg>Explore More Services</a>
+          <a class="btn gold" href="<?= url('/explore-services') ?>"><svg viewBox="0 0 24 24"><use href="#i-plus"/></svg>Explore More Services</a>
           <a class="btn outline-light" href="#selected-services"><svg viewBox="0 0 24 24"><use href="#i-scale"/></svg>View my services</a>
         </div>
       </section>
@@ -117,7 +118,7 @@
             <h2 id="selectedServicesHeading">MY SELECTED SERVICES</h2>
             <p>Services assigned to <?= e($company['name'] ?? 'your company') ?>. Only active services open a dedicated workspace.</p>
           </div>
-          <a class="text-link" href="<?= url('/explore-services/') ?>">Explore More Services &rarr;</a>
+          <a class="text-link" href="<?= url('/explore-services') ?>">Explore More Services &rarr;</a>
         </div>
 
         <?php if ($services): ?>
@@ -151,13 +152,13 @@
           <div class="svc-empty">
             <h3>No services assigned yet</h3>
             <p>Choose a legal service to attach it to your company workspace.</p>
-            <a class="btn gold" href="<?= url('/explore-services/') ?>">Explore Our Legal Services</a>
+            <a class="btn gold" href="<?= url('/explore-services') ?>">Explore Our Legal Services</a>
           </div>
         <?php endif; ?>
 
         <div class="explore-more-bar">
           <p>Need another service? Additional services are submitted to the firm for approval before activation.</p>
-          <a class="btn gold" href="<?= url('/explore-services/') ?>">Explore More Services <svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></a>
+          <a class="btn gold" href="<?= url('/explore-services') ?>">Explore More Services <svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></a>
         </div>
       </section>
 
@@ -229,8 +230,9 @@
               <h2>Service request history</h2>
               <p>Additional services requested for your company.</p>
             </div>
-            <a class="link" href="<?= url('/explore-services/') ?>">Request a service</a>
+            <a class="link" href="<?= url('/explore-services') ?>">Request a service</a>
           </div>
+          <div id="request-results" data-pager-region>
           <?php if ($requests): ?>
             <div class="table-wrap">
               <table class="t">
@@ -256,15 +258,17 @@
               </table>
             </div>
           <?php else: ?>
-            <p class="sub" style="font-size: 12px">No additional service requests have been submitted. Use <a class="text-link" href="<?= url('/explore-services/') ?>">Explore More Services</a> if your company needs another service area.</p>
+            <p class="sub" style="font-size: 12px">No additional service requests have been submitted. Use <a class="text-link" href="<?= url('/explore-services') ?>">Explore More Services</a> if your company needs another service area.</p>
           <?php endif; ?>
+          <?php App\Core\View::partial('pager', ['paginator' => $paginator, 'label' => 'Service request pages']); ?>
+          </div>
         </section>
 
         <div class="stack">
           <section class="card">
             <div class="card-head">
               <div><h2>Available services</h2><p>Not yet added to your company.</p></div>
-              <a class="link" href="<?= url('/explore-services/') ?>">Explore</a>
+              <a class="link" href="<?= url('/explore-services') ?>">Explore</a>
             </div>
             <?php if ($availableServices): ?>
               <ul class="list">
@@ -275,7 +279,7 @@
                   </li>
                 <?php endforeach; ?>
               </ul>
-              <a class="btn ghost" style="margin-top: 14px; width: 100%" href="<?= url('/explore-services/') ?>">Explore More Services</a>
+              <a class="btn ghost" style="margin-top: 14px; width: 100%" href="<?= url('/explore-services') ?>">Explore More Services</a>
             <?php else: ?>
               <p class="sub" style="font-size: 12px">Your company already has every published service area assigned or requested.</p>
             <?php endif; ?>
@@ -298,7 +302,7 @@
       <section class="card">
         <div class="card-head"><div><h2>Quick actions</h2><p>Common tasks in your workspace.</p></div></div>
         <div class="quick">
-          <a href="<?= url('/explore-services/') ?>"><span class="qi"><svg viewBox="0 0 24 24"><use href="#i-plus"/></svg></span>Explore more services<span>&rarr;</span></a>
+          <a href="<?= url('/explore-services') ?>"><span class="qi"><svg viewBox="0 0 24 24"><use href="#i-plus"/></svg></span>Explore more services<span>&rarr;</span></a>
           <a href="#selected-services"><span class="qi"><svg viewBox="0 0 24 24"><use href="#i-scale"/></svg></span>My selected services<span>&rarr;</span></a>
           <a href="#documents"><span class="qi"><svg viewBox="0 0 24 24"><use href="#i-upload"/></svg></span>Upload documents<span>&rarr;</span></a>
           <a href="#calendar"><span class="qi"><svg viewBox="0 0 24 24"><use href="#i-calendar"/></svg></span>View compliance calendar<span>&rarr;</span></a>

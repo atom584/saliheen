@@ -46,7 +46,7 @@
             <p class="summary-label">Selected service</p>
             <h3><?= e($selection['name']) ?></h3>
             <p class="summary-desc">This selection is kept safe while you sign in. Existing companies submit it as an additional-service request for firm approval.</p>
-            <div class="summary-actions"><a href="<?= url('/explore-services/') ?>">Change Service</a></div>
+            <div class="summary-actions"><a href="<?= url('/explore-services') ?>">Change Service</a></div>
           </div>
         <?php endif; ?>
 
@@ -91,7 +91,7 @@
 
           <div class="auth-row">
             <label class="check"><input type="checkbox" name="remember" /> Remember me on this device</label>
-            <a href="<?= url('/forgot-password/') ?>">Forgot password?</a>
+            <a href="<?= url('/forgot-password') ?>">Forgot password?</a>
           </div>
 
           <button class="btn solid auth-submit" type="submit">
@@ -105,7 +105,7 @@
 
         <div class="auth-note">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
-          <span><b>One account, one company.</b> Portal access is limited to the users your company authorises. Need a verification email? <a href="<?= url('/verify/') ?>">Resend verification</a>.</span>
+          <span><b>One account, one company.</b> Portal access is limited to the users your company authorises. Need a verification email? <a href="<?= url('/verify') ?>">Resend verification</a>.</span>
         </div>
       </div>
 

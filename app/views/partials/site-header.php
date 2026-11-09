@@ -25,7 +25,7 @@ $headerCtaHref = isset($headerCtaHref) ? (string) $headerCtaHref : '/contact#con
           <a href="<?= htmlspecialchars($navUrl('/services'), ENT_QUOTES, 'UTF-8') ?>" data-page="/services">Services</a>
           <a href="<?= htmlspecialchars($navUrl('/team'), ENT_QUOTES, 'UTF-8') ?>" data-page="/team">Our Team</a>
           <a href="<?= htmlspecialchars($navUrl('/contact'), ENT_QUOTES, 'UTF-8') ?>" data-page="/contact">Contact</a>
-          <a class="portal-link" href="<?= htmlspecialchars($navUrl('/login/'), ENT_QUOTES, 'UTF-8') ?>">Client Portal</a>
+          <a class="portal-link" href="<?= htmlspecialchars($navUrl('/login'), ENT_QUOTES, 'UTF-8') ?>">Client Portal</a>
         </nav>
         <a class="navcta" href="<?= htmlspecialchars($navUrl($headerCtaHref), ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars($headerCta, ENT_QUOTES, 'UTF-8') ?> &#8599;</a>
       </div>

@@ -170,7 +170,7 @@
       } catch (error) {
         /* The redirect below still clears the local page state. */
       }
-      window.location.assign(link.dataset.login || '/login/');
+      window.location.assign(link.dataset.login || '/login');
     });
   });
 })();

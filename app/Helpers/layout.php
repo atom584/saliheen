@@ -1,8 +1,6 @@
 <?php
 declare(strict_types=1);
 
-require_once dirname(__DIR__) . '/views/layouts/public.php';
-
 function render_flash_alerts(): string
 {
     ob_start();

@@ -3,10 +3,12 @@ declare(strict_types=1);
 
 namespace App\Controllers\Pages\Admin;
 
+use App\Core\Paginator;
 use App\Core\View;
 use App\Middleware\AuthMiddleware;
 use App\Middleware\CsrfMiddleware;
 use App\Models\Service;
+use App\Models\ServiceRequest;
 use App\Services\AdminService;
 use App\Services\PortalDataService;
 
@@ -39,7 +41,7 @@ final class ServiceManagementController
             } else {
                 flash('error', 'Unknown service action.');
             }
-            $target = '/admin/services/';
+            $target = '/admin/services';
             if ($filterQuery) {
                 $target .= '?' . http_build_query($filterQuery);
             }
@@ -48,7 +50,13 @@ final class ServiceManagementController
         }
 
         $allServices = Service::all(false);
-        $requests = PortalDataService::adminServiceRequests($filters);
+        $paginator = Paginator::fromRequest(
+            ServiceRequest::adminCount($filters),
+            20,
+            '/admin/services',
+            'service-requests'
+        );
+        $requests = PortalDataService::adminServiceRequests($filters, $paginator->perPage(), $paginator->offset());
         $assignments = PortalDataService::adminServiceAssignments();
         $analytics = PortalDataService::adminServiceAnalytics();
         $stats = PortalDataService::adminPortalStats();
@@ -65,6 +73,7 @@ final class ServiceManagementController
             'filterQuery',
             'allServices',
             'requests',
+            'paginator',
             'assignments',
             'analytics',
             'stats',

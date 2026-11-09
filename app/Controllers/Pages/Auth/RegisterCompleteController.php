@@ -14,7 +14,7 @@ final class RegisterCompleteController
         if (!is_array($pending) || empty($pending['provider']) || empty($pending['email']) || (int) ($pending['created'] ?? 0) < time() - 1800) {
             unset($_SESSION['_oauth_pending']);
             flash('error', 'Your provider sign-in session expired. Start again from the registration page.');
-            redirect('/register/');
+            redirect('/register');
         }
 
         $provider = ucfirst((string) $pending['provider']);

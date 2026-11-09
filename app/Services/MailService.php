@@ -220,7 +220,7 @@ final class MailService
 
     public static function verification(array $user, string $token): array
     {
-        $link = absolute_url('/verify/?token=' . urlencode($token));
+        $link = absolute_url('/verify?token=' . urlencode($token));
         $name = (string) ($user['full_name'] ?? 'there');
         $html = self::htmlLayout(
             'Verify your business email',
@@ -234,7 +234,7 @@ final class MailService
 
     public static function passwordReset(array $user, string $token): array
     {
-        $link = absolute_url('/reset-password/?token=' . urlencode($token));
+        $link = absolute_url('/reset-password?token=' . urlencode($token));
         $name = (string) ($user['full_name'] ?? 'there');
         $html = self::htmlLayout(
             'Reset your password',
@@ -257,7 +257,7 @@ final class MailService
             '<p style="margin:0 0 14px">Dear ' . e($name) . ',</p>'
             . '<p style="margin:0 0 14px">Your business email has been verified and your Saliheen &amp; Associates client portal account is active.</p>'
             . $serviceLine
-            . self::button('Open my dashboard', absolute_url('/client/dashboard/'))
+            . self::button('Open my dashboard', absolute_url('/client/dashboard'))
             . '<p style="margin:18px 0 0;font-size:12px;color:#777176">For your security, never share your password. Contact info@nsaliheen.com if you notice unusual account activity.</p>'
         );
         self::send((string) $user['email'], $name, 'Your Saliheen client portal is active', $html);
@@ -270,7 +270,7 @@ final class MailService
             return;
         }
         $company = (string) ($user['company_name'] ?? 'Company');
-        $link = absolute_url('/admin/services/');
+        $link = absolute_url('/admin/services');
         $html = self::htmlLayout(
             'New service request',
             '<p style="margin:0 0 14px">A client has requested an additional legal service.</p>'

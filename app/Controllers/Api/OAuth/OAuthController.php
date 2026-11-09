@@ -23,7 +23,7 @@ final class OAuthController
 
         if (!OAuthService::configured($provider)) {
             flash('error', ucfirst($provider) . ' sign-in is not configured yet. Register with your business email instead.');
-            redirect('/register/');
+            redirect('/register');
         }
 
         ServiceCatalogService::adoptFromRequest();
@@ -46,17 +46,17 @@ final class OAuthController
 
         if ($error !== '') {
             flash('error', $label . ' sign-in was cancelled.');
-            redirect('/register/');
+            redirect('/register');
         }
         if ($code === '') {
             flash('error', $label . ' did not return an authorization code.');
-            redirect('/register/');
+            redirect('/register');
         }
 
         $pending = OAuthService::takeState($provider, $state);
         if (!$pending) {
             flash('error', 'The ' . $label . ' sign-in session expired or was invalid. Please try again.');
-            redirect('/register/');
+            redirect('/register');
         }
 
         try {
@@ -64,18 +64,18 @@ final class OAuthController
         } catch (Throwable $exchangeError) {
             error_log($label . ' token exchange failed: ' . $exchangeError->getMessage());
             flash('error', $label . ' sign-in could not be completed. Please try again.');
-            redirect('/register/');
+            redirect('/register');
         }
         if (!$exchange['ok'] || empty($exchange['id_token'])) {
             flash('error', $label . ' sign-in could not be verified. Please try again.');
-            redirect('/register/');
+            redirect('/register');
         }
 
         $verified = OAuthService::verifyIdToken($provider, (string) $exchange['id_token'], $pending['nonce']);
         if (!$verified['ok']) {
             error_log($label . ' ID token rejected: ' . ($verified['error'] ?? 'unknown'));
             flash('error', $label . ' sign-in could not be verified. Please try again.');
-            redirect('/register/');
+            redirect('/register');
         }
 
         $claims = $verified['claims'];
@@ -86,17 +86,17 @@ final class OAuthController
 
         if ($sub === '') {
             flash('error', $label . ' did not provide a valid account identifier.');
-            redirect('/register/');
+            redirect('/register');
         }
 
         if ($provider === 'google') {
             if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 flash('error', 'Google did not provide a verified email address.');
-                redirect('/register/');
+                redirect('/register');
             }
             if (!$emailVerified) {
                 flash('error', 'Your Google email address is not verified. Verify it with Google and try again.');
-                redirect('/register/');
+                redirect('/register');
             }
         }
 
@@ -108,7 +108,7 @@ final class OAuthController
         if ($user) {
             if ($user['status'] !== 'active') {
                 flash('error', 'This account is suspended. Contact info@nsaliheen.com.');
-                redirect('/login/');
+                redirect('/login');
             }
             OAuthAccount::link((int) $user['id'], $provider, $sub);
             if ($provider === 'google' || $emailVerified) {
@@ -121,11 +121,11 @@ final class OAuthController
 
         if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
             flash('error', $label . ' did not share an email address for this account. Register with your business email instead.');
-            redirect('/register/');
+            redirect('/register');
         }
         if (!$emailVerified) {
             flash('error', 'Your ' . $label . ' email address is not verified. Verify it with ' . $label . ' and try again.');
-            redirect('/register/');
+            redirect('/register');
         }
 
         $name = trim((string) ($claims['name'] ?? ''));
@@ -148,7 +148,7 @@ final class OAuthController
             'created' => time(),
         ];
 
-        redirect('/register/complete/');
+        redirect('/register/complete');
     }
 
     private static function finishSession(array $user, int $serviceId, string $label): never
@@ -156,7 +156,7 @@ final class OAuthController
         if ($user['role'] === 'admin') {
             AuthService::login($user);
             ServiceCatalogService::clearSelected();
-            redirect('/admin/dashboard/');
+            redirect('/admin/dashboard');
         }
 
         AuthService::login($user);
@@ -172,6 +172,6 @@ final class OAuthController
             }
         }
         flash('success', $message);
-        redirect('/client/dashboard/');
+        redirect('/client/dashboard');
     }
 }

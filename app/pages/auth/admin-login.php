@@ -30,7 +30,7 @@
     <section class="auth-main">
       <div class="auth-top">
         <a href="<?= url('/') ?>">&larr; Public website</a>
-        <a class="swap" href="<?= url('/register/') ?>">Client registration &rarr;</a>
+        <a class="swap" href="<?= url('/register') ?>">Client registration &rarr;</a>
       </div>
 
       <div class="auth-card">
@@ -62,7 +62,7 @@
 
           <div class="auth-row">
             <label class="check"><input type="checkbox" name="remember" /> Remember me on this device</label>
-            <a href="<?= url('/forgot-password/') ?>">Forgot password?</a>
+            <a href="<?= url('/forgot-password') ?>">Forgot password?</a>
           </div>
 
           <button class="btn solid auth-submit" type="submit">

@@ -11,7 +11,7 @@ final class GuestMiddleware
     {
         $user = AuthService::currentUser();
         if ($user !== null) {
-            redirect($user['role'] === 'admin' ? '/admin/dashboard/' : '/client/dashboard/');
+            redirect($user['role'] === 'admin' ? '/admin/dashboard' : '/client/dashboard');
         }
     }
 }

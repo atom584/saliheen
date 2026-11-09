@@ -30,7 +30,7 @@
     <section class="auth-main">
       <div class="auth-top">
         <a href="<?= url('/') ?>">&larr; Public website</a>
-        <a class="swap" href="<?= url('/login/') ?>">Client sign in &rarr;</a>
+        <a class="swap" href="<?= url('/login') ?>">Client sign in &rarr;</a>
       </div>
 
       <div class="auth-card">
@@ -40,7 +40,7 @@
 
         <?php if (!$valid): ?>
           <p class="lead">This password reset link is incomplete or invalid. Request a new link to continue.</p>
-          <p style="margin-top: 18px"><a class="btn solid auth-submit" href="<?= url('/forgot-password/') ?>">Request a new reset link</a></p>
+          <p style="margin-top: 18px"><a class="btn solid auth-submit" href="<?= url('/forgot-password') ?>">Request a new reset link</a></p>
         <?php else: ?>
           <p class="lead">Enter a new password for your client account. You will be returned to the sign-in page when it is updated.</p>
 
@@ -75,7 +75,7 @@
 
         <div class="auth-note">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
-          <span>Reset links are single-use and expire after 60 minutes. <a href="<?= url('/forgot-password/') ?>">Request another link</a>.</span>
+          <span>Reset links are single-use and expire after 60 minutes. <a href="<?= url('/forgot-password') ?>">Request another link</a>.</span>
         </div>
       </div>
 

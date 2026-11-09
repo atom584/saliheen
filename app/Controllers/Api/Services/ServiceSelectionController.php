@@ -67,8 +67,8 @@ final class ServiceSelectionController
         AuditLog::record('service.selected', 'service', (int) $service['id'], ['intent' => $intent]);
 
         $redirect = $intent === 'login'
-            ? url('/login/') . '?sel=' . urlencode($token)
-            : url('/register/') . '?sel=' . urlencode($token);
+            ? url('/login') . '?sel=' . urlencode($token)
+            : url('/register') . '?sel=' . urlencode($token);
 
         json_response([
             'ok' => true,

@@ -18,13 +18,23 @@ final class ExploreServicesController
         $activeId = (int) ($selected['id'] ?? 0);
         $jsonFlags = JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE;
 
-        View::render('public/explore-services', compact(
+        View::page('public/explore-services', array_merge(compact(
             'user',
             'isClient',
             'selected',
             'services',
             'activeId',
             'jsonFlags'
-        ));
+        ), [
+            'title' => 'Explore Our Legal Services | Saliheen & Associates',
+            'description' => 'Explore legal, corporate governance, compliance, cyber, labour, board, disciplinary and advisory services from Saliheen & Associates and select the service you need.',
+            'bodyClass' => 'explore-page',
+            'canonical' => '/explore-services',
+            'themeColor' => '#702632',
+            'styles' => ['/css/styles.css', '/portal/services.css'],
+            'scripts' => ['/js/site.js', '/portal/explore.js'],
+            'footerVariant' => 'explore',
+            'headerCta' => 'DISCUSS YOUR MATTER',
+        ]), 'public');
     }
 }

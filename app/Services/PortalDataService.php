@@ -17,12 +17,12 @@ final class PortalDataService
 
     /**
      * @return array{
-     *   services: array, requests: array, company: array|null,
+     *   services: array, requests: array, requests_total: int, company: array|null,
      *   counts: array{active:int, pending:int, review:int, inactive:int},
      *   available:int
      * }
      */
-    public static function clientPortalData(int $companyId): array
+    public static function clientPortalData(int $companyId, int $requestLimit = 20, int $requestOffset = 0): array
     {
         $services = ClientService::forCompany($companyId);
         $counts = ['active' => 0, 'pending' => 0, 'review' => 0, 'inactive' => 0];
@@ -41,7 +41,8 @@ final class PortalDataService
 
         return [
             'services' => $services,
-            'requests' => ServiceRequest::forCompany($companyId),
+            'requests' => ServiceRequest::forCompany($companyId, $requestLimit, $requestOffset),
+            'requests_total' => ServiceRequest::countForCompany($companyId),
             'company' => self::clientCompany($companyId),
             'counts' => $counts,
             'available' => $available,
@@ -71,9 +72,9 @@ final class PortalDataService
     /**
      * @param array{service?:string,status?:string,q?:string,from?:string,to?:string} $filters
      */
-    public static function adminServiceRequests(array $filters = []): array
+    public static function adminServiceRequests(array $filters = [], int $limit = 200, int $offset = 0): array
     {
-        return ServiceRequest::adminList($filters);
+        return ServiceRequest::adminList($filters, $limit, $offset);
     }
 
     public static function adminServiceAssignments(): array

@@ -42,6 +42,14 @@ function absolute_url(string $path = ''): string
     return rtrim((string) config('app_url'), '/') . url($path);
 }
 
+/**
+ * @param array<string, scalar> $params
+ */
+function route(string $name, array $params = []): string
+{
+    return url(App\Core\Router::url($name, $params));
+}
+
 function redirect(string $path, int $status = 302): never
 {
     header('Location: ' . (preg_match('#^https?://#i', $path) ? $path : url($path)), true, $status);

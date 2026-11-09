@@ -51,32 +51,32 @@
       <button class="sb-close" id="sbClose" aria-label="Close navigation"><svg viewBox="0 0 24 24"><use href="#i-close"/></svg></button>
     </div>
     <nav class="sb-nav">
-      <a class="sb-link" href="<?= url('/client/dashboard/') ?>"><svg viewBox="0 0 24 24"><use href="#i-grid"/></svg><span>My Dashboard</span></a>
-      <a class="sb-link" href="<?= url('/client/dashboard/') ?>#company"><svg viewBox="0 0 24 24"><use href="#i-building"/></svg><span>My Company Profile</span></a>
-      <a class="sb-link" href="<?= url('/client/dashboard/') ?>#matters"><svg viewBox="0 0 24 24"><use href="#i-scale"/></svg><span>My Legal Matters</span></a>
+      <a class="sb-link" href="<?= url('/client/dashboard') ?>"><svg viewBox="0 0 24 24"><use href="#i-grid"/></svg><span>My Dashboard</span></a>
+      <a class="sb-link" href="<?= url('/client/dashboard') ?>#company"><svg viewBox="0 0 24 24"><use href="#i-building"/></svg><span>My Company Profile</span></a>
+      <a class="sb-link" href="<?= url('/client/dashboard') ?>#matters"><svg viewBox="0 0 24 24"><use href="#i-scale"/></svg><span>My Legal Matters</span></a>
       <p class="sb-label">Governance</p>
-      <a class="sb-link" href="<?= url('/client/dashboard/') ?>#governance"><svg viewBox="0 0 24 24"><use href="#i-check"/></svg><span>Corporate Governance</span></a>
-      <a class="sb-link" href="<?= url('/client/dashboard/') ?>#calendar"><svg viewBox="0 0 24 24"><use href="#i-calendar"/></svg><span>Compliance Calendar</span></a>
-      <a class="sb-link" href="<?= url('/client/dashboard/') ?>#cyber"><svg viewBox="0 0 24 24"><use href="#i-shield"/></svg><span>Cyber Risk Management</span></a>
-      <a class="sb-link" href="<?= url('/client/dashboard/') ?>#labour"><svg viewBox="0 0 24 24"><use href="#i-briefcase"/></svg><span>Labor &amp; HR Compliance</span></a>
-      <a class="sb-link" href="<?= url('/client/dashboard/') ?>#board"><svg viewBox="0 0 24 24"><use href="#i-bank"/></svg><span>Board Decision Support</span></a>
-      <a class="sb-link" href="<?= url('/client/dashboard/') ?>#adr"><svg viewBox="0 0 24 24"><use href="#i-gavel"/></svg><span>Disputes &amp; ADR</span></a>
-      <a class="sb-link" href="<?= url('/client/dashboard/') ?>#advisory"><svg viewBox="0 0 24 24"><use href="#i-scale"/></svg><span>Legal &amp; Financial Advisory</span></a>
+      <a class="sb-link" href="<?= url('/client/dashboard') ?>#governance"><svg viewBox="0 0 24 24"><use href="#i-check"/></svg><span>Corporate Governance</span></a>
+      <a class="sb-link" href="<?= url('/client/dashboard') ?>#calendar"><svg viewBox="0 0 24 24"><use href="#i-calendar"/></svg><span>Compliance Calendar</span></a>
+      <a class="sb-link" href="<?= url('/client/dashboard') ?>#cyber"><svg viewBox="0 0 24 24"><use href="#i-shield"/></svg><span>Cyber Risk Management</span></a>
+      <a class="sb-link" href="<?= url('/client/dashboard') ?>#labour"><svg viewBox="0 0 24 24"><use href="#i-briefcase"/></svg><span>Labor &amp; HR Compliance</span></a>
+      <a class="sb-link" href="<?= url('/client/dashboard') ?>#board"><svg viewBox="0 0 24 24"><use href="#i-bank"/></svg><span>Board Decision Support</span></a>
+      <a class="sb-link" href="<?= url('/client/dashboard') ?>#adr"><svg viewBox="0 0 24 24"><use href="#i-gavel"/></svg><span>Disputes &amp; ADR</span></a>
+      <a class="sb-link" href="<?= url('/client/dashboard') ?>#advisory"><svg viewBox="0 0 24 24"><use href="#i-scale"/></svg><span>Legal &amp; Financial Advisory</span></a>
       <p class="sb-label">Records &amp; support</p>
-      <a class="sb-link" href="<?= url('/client/dashboard/') ?>#documents"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg><span>Documents &amp; Downloads</span></a>
-      <a class="sb-link" href="<?= url('/client/dashboard/') ?>#reports"><svg viewBox="0 0 24 24"><use href="#i-chart"/></svg><span>Reports</span></a>
-      <a class="sb-link" href="<?= url('/client/dashboard/') ?>#requests"><svg viewBox="0 0 24 24"><use href="#i-msg"/></svg><span>Advisory Requests</span></a>
-      <a class="sb-link" href="<?= url('/client/dashboard/') ?>#messages"><svg viewBox="0 0 24 24"><use href="#i-msg"/></svg><span>Messages &amp; Support</span></a>
-      <a class="sb-link" href="<?= url('/client/dashboard/') ?>#notifications"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg><span>Notifications</span></a>
+      <a class="sb-link" href="<?= url('/client/dashboard') ?>#documents"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg><span>Documents &amp; Downloads</span></a>
+      <a class="sb-link" href="<?= url('/client/dashboard') ?>#reports"><svg viewBox="0 0 24 24"><use href="#i-chart"/></svg><span>Reports</span></a>
+      <a class="sb-link" href="<?= url('/client/dashboard') ?>#requests"><svg viewBox="0 0 24 24"><use href="#i-msg"/></svg><span>Advisory Requests</span></a>
+      <a class="sb-link" href="<?= url('/client/dashboard') ?>#messages"><svg viewBox="0 0 24 24"><use href="#i-msg"/></svg><span>Messages &amp; Support</span></a>
+      <a class="sb-link" href="<?= url('/client/dashboard') ?>#notifications"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg><span>Notifications</span></a>
       <p class="sb-label">Account</p>
-      <a class="sb-link" href="<?= url('/client/dashboard/') ?>#subscription"><svg viewBox="0 0 24 24"><use href="#i-package"/></svg><span>My Subscription</span></a>
-      <a class="sb-link" href="<?= url('/client/dashboard/') ?>#settings"><svg viewBox="0 0 24 24"><use href="#i-cog"/></svg><span>Account Settings</span></a>
+      <a class="sb-link" href="<?= url('/client/dashboard') ?>#subscription"><svg viewBox="0 0 24 24"><use href="#i-package"/></svg><span>My Subscription</span></a>
+      <a class="sb-link" href="<?= url('/client/dashboard') ?>#settings"><svg viewBox="0 0 24 24"><use href="#i-cog"/></svg><span>Account Settings</span></a>
       <p class="sb-label">Services</p>
-      <a class="sb-link" href="<?= url('/explore-services/') ?>"><svg viewBox="0 0 24 24"><use href="#i-plus"/></svg><span>Explore More Services</span></a>
+      <a class="sb-link" href="<?= url('/explore-services') ?>"><svg viewBox="0 0 24 24"><use href="#i-plus"/></svg><span>Explore More Services</span></a>
     </nav>
     <div class="sb-foot">
       <a class="sb-back" href="<?= url('/') ?>"><svg viewBox="0 0 24 24"><use href="#i-back"/></svg>Public website</a>
-      <a class="sb-back" href="<?= url('/login/') ?>" data-logout="<?= url('/api/auth/logout.php') ?>" data-login="<?= url('/login/') ?>" data-csrf="<?= e(csrf_token()) ?>">Sign out</a>
+      <a class="sb-back" href="<?= url('/login') ?>" data-logout="<?= url('/api/auth/logout.php') ?>" data-login="<?= url('/login') ?>" data-csrf="<?= e(csrf_token()) ?>">Sign out</a>
     </div>
   </aside>
   <div class="sb-scrim" id="scrim"></div>
@@ -104,9 +104,9 @@
         </section>
         <div class="sw-help" style="margin-top: 16px">
           <?php if ($blocked): ?>
-            Your request is recorded. Saliheen &amp; Associates will activate the service after review and assign a staff member. Return to <a href="<?= url('/client/dashboard/') ?>">your dashboard</a> to follow its status.
+            Your request is recorded. Saliheen &amp; Associates will activate the service after review and assign a staff member. Return to <a href="<?= url('/client/dashboard') ?>">your dashboard</a> to follow its status.
           <?php else: ?>
-            This service is not assigned to your company. Visit <a href="<?= url('/explore-services/') ?>">Explore Our Legal Services</a> to submit a request.
+            This service is not assigned to your company. Visit <a href="<?= url('/explore-services') ?>">Explore Our Legal Services</a> to submit a request.
           <?php endif; ?>
         </div>
       <?php else: ?>
@@ -117,7 +117,7 @@
               <h1><?= e($service['name']) ?></h1>
               <p><?= e($service['description']) ?></p>
             </div>
-            <a class="btn-service" href="<?= url('/client/dashboard/') ?>"><svg viewBox="0 0 24 24"><use href="#i-back"/></svg>Back to dashboard</a>
+            <a class="btn-service" href="<?= url('/client/dashboard') ?>"><svg viewBox="0 0 24 24"><use href="#i-back"/></svg>Back to dashboard</a>
           </div>
         </section>
 

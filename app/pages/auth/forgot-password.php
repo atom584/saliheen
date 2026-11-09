@@ -30,7 +30,7 @@
     <section class="auth-main">
       <div class="auth-top">
         <a href="<?= url('/') ?>">&larr; Public website</a>
-        <a class="swap" href="<?= url('/register/') ?>">New client? Register &rarr;</a>
+        <a class="swap" href="<?= url('/register') ?>">New client? Register &rarr;</a>
       </div>
 
       <div class="auth-card">
@@ -51,7 +51,7 @@
 
         <div class="auth-note">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
-          <span><b>Remembered your password?</b> <a href="<?= url('/login/') ?>">Return to sign in</a>. Unverified account? <a href="<?= url('/verify/') ?>">Resend verification</a>.</span>
+          <span><b>Remembered your password?</b> <a href="<?= url('/login') ?>">Return to sign in</a>. Unverified account? <a href="<?= url('/verify') ?>">Resend verification</a>.</span>
         </div>
       </div>
 

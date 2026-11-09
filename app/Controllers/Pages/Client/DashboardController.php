@@ -3,8 +3,10 @@ declare(strict_types=1);
 
 namespace App\Controllers\Pages\Client;
 
+use App\Core\Paginator;
 use App\Core\View;
 use App\Middleware\AuthMiddleware;
+use App\Models\ServiceRequest;
 use App\Services\PortalDataService;
 use App\Services\ServiceCatalogService;
 
@@ -13,7 +15,17 @@ final class DashboardController
     public static function handle(): void
     {
         $user = AuthMiddleware::requireClient();
-        $data = PortalDataService::clientPortalData((int) $user['company_id']);
+        $paginator = Paginator::fromRequest(
+            ServiceRequest::countForCompany((int) $user['company_id']),
+            8,
+            '/client/dashboard',
+            'requests'
+        );
+        $data = PortalDataService::clientPortalData(
+            (int) $user['company_id'],
+            $paginator->perPage(),
+            $paginator->offset()
+        );
         $company = $data['company'] ?? [];
         $services = $data['services'];
         $requests = $data['requests'];
@@ -34,6 +46,7 @@ final class DashboardController
             'company',
             'services',
             'requests',
+            'paginator',
             'counts',
             'assignedIds',
             'availableServices',

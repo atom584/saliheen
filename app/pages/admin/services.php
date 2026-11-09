@@ -14,6 +14,7 @@
   <script src="<?= url('/portal/portal.js') ?>" defer></script>
   <script src="<?= url('/portal/account.js') ?>" defer></script>
   <script src="<?= url('/portal/views.js') ?>" defer></script>
+  <script src="<?= url('/portal/paging.js') ?>" defer></script>
 </head>
 <body class="portal admin">
   <a class="skip" href="#main">Skip to content</a>
@@ -55,41 +56,41 @@
     </div>
     <nav class="sb-nav">
       <p class="sb-label">Overview</p>
-      <a class="sb-link" href="<?= url('/admin/dashboard/') ?>"><svg viewBox="0 0 24 24"><use href="#i-grid"/></svg><span>Dashboard</span></a>
-      <a class="sb-link active" href="<?= url('/admin/services/') ?>" aria-current="page"><svg viewBox="0 0 24 24"><use href="#i-scale"/></svg><span>Service Management</span></a>
-      <a class="sb-link" href="<?= url('/admin/dashboard/') ?>#clients"><svg viewBox="0 0 24 24"><use href="#i-users"/></svg><span>Client Management</span></a>
-      <a class="sb-link" href="<?= url('/admin/dashboard/') ?>#companies"><svg viewBox="0 0 24 24"><use href="#i-building"/></svg><span>Company Management</span></a>
+      <a class="sb-link" href="<?= url('/admin/dashboard') ?>"><svg viewBox="0 0 24 24"><use href="#i-grid"/></svg><span>Dashboard</span></a>
+      <a class="sb-link active" href="<?= url('/admin/services') ?>" aria-current="page"><svg viewBox="0 0 24 24"><use href="#i-scale"/></svg><span>Service Management</span></a>
+      <a class="sb-link" href="<?= url('/admin/dashboard') ?>#clients"><svg viewBox="0 0 24 24"><use href="#i-users"/></svg><span>Client Management</span></a>
+      <a class="sb-link" href="<?= url('/admin/dashboard') ?>#companies"><svg viewBox="0 0 24 24"><use href="#i-building"/></svg><span>Company Management</span></a>
 
       <p class="sb-label">Legal operations</p>
-      <a class="sb-link" href="<?= url('/admin/dashboard/') ?>#matters"><svg viewBox="0 0 24 24"><use href="#i-scale"/></svg><span>Legal Matters</span></a>
-      <a class="sb-link" href="<?= url('/admin/dashboard/') ?>#governance"><svg viewBox="0 0 24 24"><use href="#i-check"/></svg><span>Corporate Governance</span></a>
-      <a class="sb-link" href="<?= url('/admin/dashboard/') ?>#compliance"><svg viewBox="0 0 24 24"><use href="#i-shield"/></svg><span>Compliance Management</span></a>
-      <a class="sb-link" href="<?= url('/admin/dashboard/') ?>#cyber"><svg viewBox="0 0 24 24"><use href="#i-lock"/></svg><span>Cyber Governance</span></a>
-      <a class="sb-link" href="<?= url('/admin/dashboard/') ?>#labour"><svg viewBox="0 0 24 24"><use href="#i-briefcase"/></svg><span>Labor &amp; HR Governance</span></a>
-      <a class="sb-link" href="<?= url('/admin/dashboard/') ?>#board"><svg viewBox="0 0 24 24"><use href="#i-bank"/></svg><span>Board Decision Support</span></a>
-      <a class="sb-link" href="<?= url('/admin/dashboard/') ?>#adr"><svg viewBox="0 0 24 24"><use href="#i-gavel"/></svg><span>Disciplinary &amp; ADR</span></a>
-      <a class="sb-link" href="<?= url('/admin/dashboard/') ?>#advisory"><svg viewBox="0 0 24 24"><use href="#i-bank"/></svg><span>Legal &amp; Financial Advisory</span></a>
+      <a class="sb-link" href="<?= url('/admin/dashboard') ?>#matters"><svg viewBox="0 0 24 24"><use href="#i-scale"/></svg><span>Legal Matters</span></a>
+      <a class="sb-link" href="<?= url('/admin/dashboard') ?>#governance"><svg viewBox="0 0 24 24"><use href="#i-check"/></svg><span>Corporate Governance</span></a>
+      <a class="sb-link" href="<?= url('/admin/dashboard') ?>#compliance"><svg viewBox="0 0 24 24"><use href="#i-shield"/></svg><span>Compliance Management</span></a>
+      <a class="sb-link" href="<?= url('/admin/dashboard') ?>#cyber"><svg viewBox="0 0 24 24"><use href="#i-lock"/></svg><span>Cyber Governance</span></a>
+      <a class="sb-link" href="<?= url('/admin/dashboard') ?>#labour"><svg viewBox="0 0 24 24"><use href="#i-briefcase"/></svg><span>Labor &amp; HR Governance</span></a>
+      <a class="sb-link" href="<?= url('/admin/dashboard') ?>#board"><svg viewBox="0 0 24 24"><use href="#i-bank"/></svg><span>Board Decision Support</span></a>
+      <a class="sb-link" href="<?= url('/admin/dashboard') ?>#adr"><svg viewBox="0 0 24 24"><use href="#i-gavel"/></svg><span>Disciplinary &amp; ADR</span></a>
+      <a class="sb-link" href="<?= url('/admin/dashboard') ?>#advisory"><svg viewBox="0 0 24 24"><use href="#i-bank"/></svg><span>Legal &amp; Financial Advisory</span></a>
 
       <p class="sb-label">Workflow</p>
-      <a class="sb-link" href="<?= url('/admin/dashboard/') ?>#tasks"><svg viewBox="0 0 24 24"><use href="#i-check"/></svg><span>Task Management</span></a>
-      <a class="sb-link" href="<?= url('/admin/dashboard/') ?>#calendar"><svg viewBox="0 0 24 24"><use href="#i-calendar"/></svg><span>Compliance Calendar</span></a>
-      <a class="sb-link" href="<?= url('/admin/dashboard/') ?>#documents"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg><span>Document Management</span></a>
-      <a class="sb-link" href="<?= url('/admin/dashboard/') ?>#reports"><svg viewBox="0 0 24 24"><use href="#i-chart"/></svg><span>Reports &amp; Analytics</span></a>
+      <a class="sb-link" href="<?= url('/admin/dashboard') ?>#tasks"><svg viewBox="0 0 24 24"><use href="#i-check"/></svg><span>Task Management</span></a>
+      <a class="sb-link" href="<?= url('/admin/dashboard') ?>#calendar"><svg viewBox="0 0 24 24"><use href="#i-calendar"/></svg><span>Compliance Calendar</span></a>
+      <a class="sb-link" href="<?= url('/admin/dashboard') ?>#documents"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg><span>Document Management</span></a>
+      <a class="sb-link" href="<?= url('/admin/dashboard') ?>#reports"><svg viewBox="0 0 24 24"><use href="#i-chart"/></svg><span>Reports &amp; Analytics</span></a>
 
       <p class="sb-label">Commercial</p>
-      <a class="sb-link" href="<?= url('/admin/dashboard/') ?>#packages"><svg viewBox="0 0 24 24"><use href="#i-package"/></svg><span>Service Packages</span></a>
-      <a class="sb-link" href="<?= url('/admin/dashboard/') ?>#billing"><svg viewBox="0 0 24 24"><use href="#i-card"/></svg><span>Billing &amp; Payments</span></a>
+      <a class="sb-link" href="<?= url('/admin/dashboard') ?>#packages"><svg viewBox="0 0 24 24"><use href="#i-package"/></svg><span>Service Packages</span></a>
+      <a class="sb-link" href="<?= url('/admin/dashboard') ?>#billing"><svg viewBox="0 0 24 24"><use href="#i-card"/></svg><span>Billing &amp; Payments</span></a>
 
       <p class="sb-label">Administration</p>
-      <a class="sb-link" href="<?= url('/admin/dashboard/') ?>#users"><svg viewBox="0 0 24 24"><use href="#i-id"/></svg><span>User Management</span></a>
-      <a class="sb-link" href="<?= url('/admin/dashboard/') ?>#messages"><svg viewBox="0 0 24 24"><use href="#i-msg"/></svg><span>Messages &amp; Support</span></a>
-      <a class="sb-link" href="<?= url('/admin/dashboard/') ?>#notifications"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg><span>Notifications</span></a>
-      <a class="sb-link" href="<?= url('/admin/dashboard/') ?>#audit"><svg viewBox="0 0 24 24"><use href="#i-history"/></svg><span>Audit Logs</span></a>
-      <a class="sb-link" href="<?= url('/admin/dashboard/') ?>#settings"><svg viewBox="0 0 24 24"><use href="#i-cog"/></svg><span>Settings</span></a>
+      <a class="sb-link" href="<?= url('/admin/dashboard') ?>#users"><svg viewBox="0 0 24 24"><use href="#i-id"/></svg><span>User Management</span></a>
+      <a class="sb-link" href="<?= url('/admin/dashboard') ?>#messages"><svg viewBox="0 0 24 24"><use href="#i-msg"/></svg><span>Messages &amp; Support</span></a>
+      <a class="sb-link" href="<?= url('/admin/dashboard') ?>#notifications"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg><span>Notifications</span></a>
+      <a class="sb-link" href="<?= url('/admin/dashboard') ?>#audit"><svg viewBox="0 0 24 24"><use href="#i-history"/></svg><span>Audit Logs</span></a>
+      <a class="sb-link" href="<?= url('/admin/dashboard') ?>#settings"><svg viewBox="0 0 24 24"><use href="#i-cog"/></svg><span>Settings</span></a>
     </nav>
     <div class="sb-foot">
       <a class="sb-back" href="<?= url('/') ?>"><svg viewBox="0 0 24 24"><use href="#i-back"/></svg>Public website</a>
-      <a class="sb-back" href="<?= url('/admin-login/') ?>" data-logout="<?= url('/api/auth/logout.php') ?>" data-login="<?= url('/admin-login/') ?>" data-csrf="<?= e(csrf_token()) ?>">Sign out</a>
+      <a class="sb-back" href="<?= url('/admin-login') ?>" data-logout="<?= url('/api/auth/logout.php') ?>" data-login="<?= url('/admin-login') ?>" data-csrf="<?= e(csrf_token()) ?>">Sign out</a>
     </div>
   </aside>
   <div class="sb-scrim" id="scrim"></div>
@@ -99,7 +100,7 @@
       <button class="icon-btn menu" id="menuBtn" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar"><svg viewBox="0 0 24 24"><use href="#i-menu"/></svg></button>
       <div class="crumbs"><span>Admin</span><span>/</span><strong>Service Management</strong></div>
       <div class="top-actions">
-        <span class="chip ok"><?= count($requests) ?> requests shown</span>
+        <span class="chip ok"><?= $paginator->total() ?> requests</span>
         <div class="avatar" title="<?= e($admin['full_name']) ?>"><?= e($initials ?: 'SA') ?></div>
       </div>
     </header>
@@ -114,7 +115,7 @@
           <p class="sub">Review requests, activate assignments and manage the eight legal service areas.</p>
         </div>
         <div class="head-actions">
-          <a class="btn ghost" href="<?= url('/admin/dashboard/') ?>"><svg viewBox="0 0 24 24"><use href="#i-back"/></svg>Dashboard</a>
+          <a class="btn ghost" href="<?= url('/admin/dashboard') ?>"><svg viewBox="0 0 24 24"><use href="#i-back"/></svg>Dashboard</a>
         </div>
       </div>
 
@@ -170,7 +171,7 @@
           <div><h2 id="requestsHeading">Service requests</h2><p>Filter by service, client, date or status. Only administrators can approve and activate additional services.</p></div>
         </div>
 
-        <form class="filter-bar" method="get" action="<?= url('/admin/services/') ?>">
+        <form class="filter-bar" method="get" action="<?= url('/admin/services') ?>">
           <div class="field">
             <label for="filterQ">Client or company</label>
             <input id="filterQ" name="q" type="search" value="<?= e($filters['q']) ?>" placeholder="Name, email or company">
@@ -203,10 +204,11 @@
           </div>
           <div class="field filter-actions" style="display: flex; gap: 6px">
             <button class="btn solid" type="submit">Filter</button>
-            <a class="btn ghost" href="<?= url('/admin/services/') ?>">Reset</a>
+            <a class="btn ghost" href="<?= url('/admin/services') ?>">Reset</a>
           </div>
         </form>
 
+        <div id="request-results" data-pager-region>
         <?php if ($requests): ?>
           <div class="table-wrap">
             <table class="admin-table">
@@ -240,7 +242,7 @@
                     <td>
                       <details class="req-actions">
                         <summary aria-label="Manage request <?= e(service_request_ref((int) $request['id'])) ?>">Manage</summary>
-                        <form class="admin-request-form" method="post" action="<?= url('/admin/services/') ?>">
+                        <form class="admin-request-form" method="post" action="<?= url('/admin/services') ?>">
                           <?= csrf_field() ?>
                           <input type="hidden" name="request_id" value="<?= (int) $request['id'] ?>">
                           <div class="field">
@@ -273,6 +275,8 @@
         <?php else: ?>
           <p class="admin-note">No service requests match these filters. Client selections made while signed in appear here for review.</p>
         <?php endif; ?>
+        <?php App\Core\View::partial('pager', ['paginator' => $paginator, 'label' => 'Service request pages']); ?>
+        </div>
       </section>
 
       <section id="assignments" aria-labelledby="assignmentsHeading" style="margin-top: 24px">
@@ -300,7 +304,7 @@
                     <td>
                       <details class="req-actions">
                         <summary aria-label="Manage assignment">Manage</summary>
-                        <form class="admin-request-form" method="post" action="<?= url('/admin/services/') ?>">
+                        <form class="admin-request-form" method="post" action="<?= url('/admin/services') ?>">
                           <?= csrf_field() ?>
                           <input type="hidden" name="assignment_id" value="<?= (int) $assignment['id'] ?>">
                           <div class="field">
@@ -344,9 +348,9 @@
         <section class="card">
           <div class="card-head"><div><h2>Service operations</h2><p>Documents, communication and service tasks.</p></div></div>
           <div class="quick">
-            <a href="<?= url('/admin/dashboard/') ?>#"><span class="qi"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></span>Document management<span>&rarr;</span></a>
-            <a href="<?= url('/admin/dashboard/') ?>#"><span class="qi"><svg viewBox="0 0 24 24"><use href="#i-msg"/></svg></span>Client communication<span>&rarr;</span></a>
-            <a href="<?= url('/admin/dashboard/') ?>#"><span class="qi"><svg viewBox="0 0 24 24"><use href="#i-check"/></svg></span>Service tasks<span>&rarr;</span></a>
+            <a href="<?= url('/admin/dashboard') ?>#"><span class="qi"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></span>Document management<span>&rarr;</span></a>
+            <a href="<?= url('/admin/dashboard') ?>#"><span class="qi"><svg viewBox="0 0 24 24"><use href="#i-msg"/></svg></span>Client communication<span>&rarr;</span></a>
+            <a href="<?= url('/admin/dashboard') ?>#"><span class="qi"><svg viewBox="0 0 24 24"><use href="#i-check"/></svg></span>Service tasks<span>&rarr;</span></a>
           </div>
           <p class="admin-note" style="margin-top: 12px">Assignment notes entered above appear in the client's dedicated service workspace. Documents, messages and tasks stay within their existing modules and are scoped to the selected company.</p>
         </section>

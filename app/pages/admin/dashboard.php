@@ -56,7 +56,7 @@
     <nav class="sb-nav">
       <p class="sb-label">Overview</p>
       <a class="sb-link active" href="#" aria-current="page"><svg viewBox="0 0 24 24"><use href="#i-grid"/></svg><span>Dashboard</span></a>
-      <a class="sb-link" href="<?= url('/admin/services/') ?>"><svg viewBox="0 0 24 24"><use href="#i-scale"/></svg><span>Service Management</span></a>
+      <a class="sb-link" href="<?= url('/admin/services') ?>"><svg viewBox="0 0 24 24"><use href="#i-scale"/></svg><span>Service Management</span></a>
       <a class="sb-link" href="#"><svg viewBox="0 0 24 24"><use href="#i-users"/></svg><span>Client Management</span></a>
       <a class="sb-link" href="#"><svg viewBox="0 0 24 24"><use href="#i-building"/></svg><span>Company Management</span></a>
 
@@ -89,7 +89,7 @@
     </nav>
     <div class="sb-foot">
       <a class="sb-back" href="<?= url('/') ?>"><svg viewBox="0 0 24 24"><use href="#i-back"/></svg>Public website</a>
-      <a class="sb-back" href="<?= url('/admin-login/') ?>" data-logout="<?= url('/api/auth/logout.php') ?>" data-login="<?= url('/admin-login/') ?>" data-csrf="<?= e(csrf_token()) ?>">Sign out</a>
+      <a class="sb-back" href="<?= url('/admin-login') ?>" data-logout="<?= url('/api/auth/logout.php') ?>" data-login="<?= url('/admin-login') ?>" data-csrf="<?= e(csrf_token()) ?>">Sign out</a>
     </div>
   </aside>
   <div class="sb-scrim" id="scrim"></div>
@@ -116,8 +116,8 @@
           <p class="sub">Here's the live service overview for Saliheen &amp; Associates.</p>
         </div>
         <div class="head-actions">
-          <a class="btn ghost" href="<?= url('/admin/services/') ?>#service-requests">Service requests</a>
-          <a class="btn solid" href="<?= url('/admin/services/') ?>"><svg viewBox="0 0 24 24"><use href="#i-scale"/></svg>Service Management</a>
+          <a class="btn ghost" href="<?= url('/admin/services') ?>#service-requests">Service requests</a>
+          <a class="btn solid" href="<?= url('/admin/services') ?>"><svg viewBox="0 0 24 24"><use href="#i-scale"/></svg>Service Management</a>
         </div>
       </div>
 
@@ -140,7 +140,7 @@
         <article class="stat">
           <div class="stat-top"><span class="stat-label">Pending service requests</span><span class="stat-icon"><svg viewBox="0 0 24 24"><use href="#i-calendar"/></svg></span></div>
           <strong><?= (int) $stats['pending_requests'] ?></strong>
-          <small><a href="<?= url('/admin/services/') ?>#service-requests">Review requests</a></small>
+          <small><a href="<?= url('/admin/services') ?>#service-requests">Review requests</a></small>
         </article>
       </section>
 
@@ -151,7 +151,7 @@
               <h2>Client registrations</h2>
               <p>New client accounts over the last six months.</p>
             </div>
-            <a class="link" href="<?= url('/admin/services/') ?>#analytics">Service analytics</a>
+            <a class="link" href="<?= url('/admin/services') ?>#analytics">Service analytics</a>
           </div>
           <div class="trend-bars" role="img" aria-label="Client registrations for the last six months">
             <?php foreach ($analytics['trend'] as $month): ?>
@@ -171,7 +171,7 @@
               <h2>Service catalogue</h2>
               <p>Client assignments by service.</p>
             </div>
-            <a class="link" href="<?= url('/admin/services/') ?>#catalogue">Manage</a>
+            <a class="link" href="<?= url('/admin/services') ?>#catalogue">Manage</a>
           </div>
           <ul class="list">
             <?php foreach (array_slice($analytics['services'], 0, 4) as $service): ?>
@@ -192,7 +192,7 @@
               <h2>Recent service requests</h2>
               <p>Latest client requests for additional services.</p>
             </div>
-            <a class="link" href="<?= url('/admin/services/') ?>#service-requests">All requests</a>
+            <a class="link" href="<?= url('/admin/services') ?>#service-requests">All requests</a>
           </div>
           <?php if ($recentRequests): ?>
             <div class="table-wrap">
@@ -233,7 +233,7 @@
                   <li><b><?= e($row['client_name']) ?> — <?= e($row['service_name']) ?></b><span><?= e($row['company_name']) ?> · <?= e(format_date($row['created_at'])) ?></span></li>
                 <?php endforeach; ?>
               </ul>
-              <a class="btn ghost" style="margin-top: 12px; width: 100%" href="<?= url('/admin/services/') ?>#service-requests">Review requests</a>
+              <a class="btn ghost" style="margin-top: 12px; width: 100%" href="<?= url('/admin/services') ?>#service-requests">Review requests</a>
             <?php else: ?>
               <p class="sub" style="font-size: 12px">No requests are awaiting review.</p>
             <?php endif; ?>
@@ -259,10 +259,10 @@
       <section class="card">
         <div class="card-head"><div><h2>Service management</h2><p>Activate services, assign staff and track progress.</p></div></div>
         <div class="quick">
-          <a href="<?= url('/admin/services/') ?>#service-requests"><span class="qi"><svg viewBox="0 0 24 24"><use href="#i-check"/></svg></span>Review service requests<span>&rarr;</span></a>
-          <a href="<?= url('/admin/services/') ?>#assignments"><span class="qi"><svg viewBox="0 0 24 24"><use href="#i-users"/></svg></span>Manage assignments<span>&rarr;</span></a>
-          <a href="<?= url('/admin/services/') ?>#catalogue"><span class="qi"><svg viewBox="0 0 24 24"><use href="#i-scale"/></svg></span>Service catalogue<span>&rarr;</span></a>
-          <a href="<?= url('/admin/services/') ?>#analytics"><span class="qi"><svg viewBox="0 0 24 24"><use href="#i-chart"/></svg></span>Service analytics<span>&rarr;</span></a>
+          <a href="<?= url('/admin/services') ?>#service-requests"><span class="qi"><svg viewBox="0 0 24 24"><use href="#i-check"/></svg></span>Review service requests<span>&rarr;</span></a>
+          <a href="<?= url('/admin/services') ?>#assignments"><span class="qi"><svg viewBox="0 0 24 24"><use href="#i-users"/></svg></span>Manage assignments<span>&rarr;</span></a>
+          <a href="<?= url('/admin/services') ?>#catalogue"><span class="qi"><svg viewBox="0 0 24 24"><use href="#i-scale"/></svg></span>Service catalogue<span>&rarr;</span></a>
+          <a href="<?= url('/admin/services') ?>#analytics"><span class="qi"><svg viewBox="0 0 24 24"><use href="#i-chart"/></svg></span>Service analytics<span>&rarr;</span></a>
         </div>
       </section>
 

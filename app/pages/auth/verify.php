@@ -30,7 +30,7 @@
     <section class="auth-main">
       <div class="auth-top">
         <a href="<?= url('/') ?>">&larr; Public website</a>
-        <a class="swap" href="<?= url('/login/') ?>">Client sign in &rarr;</a>
+        <a class="swap" href="<?= url('/login') ?>">Client sign in &rarr;</a>
       </div>
 
       <div class="auth-card">
@@ -50,7 +50,7 @@
           <p class="eyebrow">Already signed in</p>
           <h2>Your email is verified</h2>
           <p class="lead">You are already signed in to your workspace as <b><?= e($user['email']) ?></b>.</p>
-          <p style="margin-top: 18px"><a class="btn solid auth-submit" href="<?= url($user['role'] === 'admin' ? '/admin/dashboard/' : '/client/dashboard/') ?>">Open dashboard</a></p>
+          <p style="margin-top: 18px"><a class="btn solid auth-submit" href="<?= url($user['role'] === 'admin' ? '/admin/dashboard' : '/client/dashboard') ?>">Open dashboard</a></p>
         <?php else: ?>
           <span class="secure-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H8l-4 4V5Z"/><path d="M8 9h8M8 12h5"/></svg>Email verification</span>
           <p class="eyebrow">Check your inbox</p>
@@ -81,7 +81,7 @@
 
           <div class="auth-note">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
-            <span><b>Already verified?</b> <a href="<?= url('/login/') ?>">Sign in</a>. If the link has expired, resend it above.</span>
+            <span><b>Already verified?</b> <a href="<?= url('/login') ?>">Sign in</a>. If the link has expired, resend it above.</span>
           </div>
         <?php endif; ?>
       </div>

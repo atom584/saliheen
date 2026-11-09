@@ -1,22 +1,3 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Explore legal, corporate governance, compliance, cyber, labour, board, disciplinary and advisory services from Saliheen &amp; Associates and select the service you need.">
-  <meta name="theme-color" content="#702632">
-  <title>Explore Our Legal Services | Saliheen &amp; Associates</title>
-  <link rel="canonical" href="<?= e(absolute_url('/explore-services/')) ?>">
-  <link rel="icon" type="image/svg+xml" href="<?= url('/images/saliheen-favicon.svg') ?>">
-  <link rel="icon" type="image/png" sizes="64x64" href="<?= url('/images/saliheen-favicon.png') ?>">
-  <link rel="stylesheet" href="<?= url('/css/styles.css') ?>">
-  <link rel="stylesheet" href="<?= url('/portal/services.css') ?>">
-  <script src="<?= url('/js/site.js') ?>" defer></script>
-  <script src="<?= url('/portal/explore.js') ?>" defer></script>
-</head>
-<body class="explore-page">
-  <?php $headerCta = 'DISCUSS YOUR MATTER'; require __DIR__ . '/../../views/partials/site-header.php'; ?>
-
   <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
     <symbol id="i-scale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M8 21h8"/><path d="M5 7l-3 6h6L5 7Z"/><path d="M19 7l-3 6h6l-3-6Z"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12.2l3 3 5.2-6"/></symbol>
@@ -45,7 +26,7 @@
         <?php if ($isClient): ?>
           <p class="selected-flash">You are signed in as <strong><?= e($user['full_name']) ?></strong><?= !empty($user['company_name']) ? ' · ' . e($user['company_name']) : '' ?>. Selecting a service here submits an additional service request for review.</p>
         <?php elseif ($user !== null): ?>
-          <p class="selected-flash">Administrator accounts do not request client services. Manage client services from <a href="<?= url('/admin/services/') ?>" style="color:#1d4f83;font-weight:700">Service Management</a>.</p>
+          <p class="selected-flash">Administrator accounts do not request client services. Manage client services from <a href="<?= url('/admin/services') ?>" style="color:#1d4f83;font-weight:700">Service Management</a>.</p>
         <?php endif; ?>
 
         <div class="explore-shell">
@@ -116,17 +97,6 @@
       </div>
     </section>
   </main>
-
-  <footer class="footer">
-    <div class="container"><div class="footer-grid">
-      <div><img class="footer-logo" src="<?= url('/images/saliheen-brand-light.svg') ?>" alt="Saliheen &amp; Associates logo"><p>Professional legal consultancy with a commitment to clarity, discretion, and client-focused service.</p><p>B176, Lane 23, DOHS, Mohakhali, Dhaka, Bangladesh</p></div>
-      <div><h4>Explore</h4><div class="footer-links"><a href="<?= url('/about/') ?>">About the Firm</a><a href="<?= url('/services/') ?>">Practice Areas</a><a href="<?= url('/explore-services/') ?>">Explore Legal Services</a><a href="<?= url('/team/') ?>">Our Team</a><a href="<?= url('/contact/#contact') ?>">Contact</a></div></div>
-      <div><h4>Contact</h4><p><a href="mailto:info@nsaliheen.com">info@nsaliheen.com</a><br><a href="mailto:nazmus.nazlee@gmail.com">nazmus.nazlee@gmail.com</a><br><a href="tel:+8801713079046">+880 1713-079046</a></p><a class="footer-enquiry" href="<?= url('/contact/#contact') ?>">Enquire with the firm &#8599;</a></div>
-    </div></div>
-    <div class="copyright-band"><div class="container"><div class="copyright"><span>&copy; <?= date('Y') ?> Saliheen &amp; Associates.</span><span>General info only; not legal advice.</span></div></div></div>
-  </footer>
-  <button class="back-top" id="backTop" aria-label="Scroll to top">&#8593;</button>
-
   <script type="application/json" id="serviceData"><?= json_encode(array_map(static fn (array $s): array => [
       'id' => (int) $s['id'],
       'slug' => $s['slug'],
@@ -137,10 +107,8 @@
   ], $services), $jsonFlags) ?></script>
   <div id="exploreConfig"
        data-api="<?= url('/api/services/select.php') ?>"
-       data-login="<?= url('/login/') ?>"
-       data-dashboard="<?= url('/client/dashboard/') ?>"
+       data-login="<?= url('/login') ?>"
+       data-dashboard="<?= url('/client/dashboard') ?>"
        data-csrf="<?= e(csrf_token()) ?>"
        data-mode="<?= $isClient ? 'client' : ($user !== null ? 'admin' : 'guest') ?>"
        hidden></div>
-</body>
-</html>

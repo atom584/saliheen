@@ -15,7 +15,7 @@ final class AuthMiddleware
                 json_response(['ok' => false, 'error' => 'Please sign in to continue.'], 401);
             }
             flash('error', 'Please sign in to continue.');
-            redirect('/login/');
+            redirect('/login');
         }
         $_SESSION['last_activity'] = time();
         return $user;
@@ -35,7 +35,7 @@ final class AuthMiddleware
             if ($json || wants_json()) {
                 json_response(['ok' => false, 'error' => 'Company profile incomplete.', 'code' => 'profile_incomplete'], 409);
             }
-            redirect('/register/complete/');
+            redirect('/register/complete');
         }
         return $user;
     }

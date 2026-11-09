@@ -1,5 +1,5 @@
 Options -Indexes
-DirectoryIndex index.php index.html
+DirectoryIndex index.php
 DirectorySlash Off
 
 <IfModule mod_authz_core.c>
@@ -13,21 +13,18 @@ DirectorySlash Off
   RewriteBase /
 
   # Application internals are never served directly.
-  RewriteRule ^(app|db|setup)(/|$) - [F,L]
+  RewriteRule ^(app|db|routes|setup)(/|$) - [F,L]
 
-  # Legacy .html and static dashboard URLs.
-  RewriteRule ^pages/(about|services|team|contact)\.html$ /$1 [R=301,L,NE]
-  RewriteRule ^(about|services|team|contact)\.html$ /$1 [R=301,L,NE]
-  RewriteRule ^(about|services|team|contact)/(index\.html)?$ /$1 [R=301,L,NE]
-  RewriteRule ^index\.html$ / [R=301,L,NE]
-  RewriteRule ^(register|login|admin-login)/index\.html$ /$1/ [R=301,L,NE]
-  RewriteRule ^register/complete/index\.html$ /register/complete/ [R=301,L,NE]
-  RewriteRule ^(admin|client)/dashboard/index\.html$ /$1/dashboard/ [R=301,L,NE]
+  # Legacy .html entry points from the static prototype.
+  RewriteRule ^(about|services|team|contact)\.html$ /$1 [R=301,L,NE,QSA]
+  RewriteRule ^(about|services|team|contact)/index\.html$ /$1 [R=301,L,NE,QSA]
+  RewriteRule ^index\.html$ / [R=301,L,NE,QSA]
+  RewriteRule ^(login|admin-login|register|forgot-password|reset-password|verify)/index\.html$ /$1 [R=301,L,NE,QSA]
+  RewriteRule ^register/complete/index\.html$ /register/complete [R=301,L,NE,QSA]
+  RewriteRule ^(admin|client)/dashboard/index\.html$ /$1/dashboard [R=301,L,NE,QSA]
 
-  # Dedicated client service workspace: /client/services/{slug}
-  RewriteRule ^client/services/?$ /client/dashboard/ [R=302,L]
-  RewriteRule ^client/services/([a-z0-9-]{1,80})/?$ client/services/index.php?slug=$1 [QSA,L]
-
-  # Clean public page URLs.
-  RewriteRule ^(about|services|team|contact)$ pages/$1.php [END]
+  # Front controller: everything else is resolved by routes/web.php.
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ index.php [L]
 </IfModule>

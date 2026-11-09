@@ -62,7 +62,7 @@ final class AuthApiController
 
         RateLimitMiddleware::clear('login.email', $email);
 
-        $redirect = $user['role'] === 'admin' ? url('/admin/dashboard/') : url('/client/dashboard/');
+        $redirect = $user['role'] === 'admin' ? url('/admin/dashboard') : url('/client/dashboard');
         $message = 'Signed in successfully.';
         if ($attachment['applied']) {
             $message = (string) ($attachment['message'] ?? $message);
@@ -141,7 +141,7 @@ final class AuthApiController
                 ? 'Account created. Check your business email for the verification link.'
                 : 'Account created, but the verification email could not be sent. Use "Resend verification" on the next page.',
             'mail_sent' => $mail['ok'],
-            'redirect' => url('/verify/?email=' . urlencode($data['email']) . '&sent=' . ($mail['ok'] ? '1' : '0')),
+            'redirect' => url('/verify?email=' . urlencode($data['email']) . '&sent=' . ($mail['ok'] ? '1' : '0')),
         ]);
     }
 
@@ -157,10 +157,10 @@ final class AuthApiController
         flash('success', 'You have been signed out.');
 
         if (wants_json()) {
-            json_response(['ok' => true, 'redirect' => url('/login/')]);
+            json_response(['ok' => true, 'redirect' => url('/login')]);
         }
 
-        redirect('/login/');
+        redirect('/login');
     }
 
     public static function forgotPassword(): void
@@ -239,7 +239,7 @@ final class AuthApiController
         json_response([
             'ok' => true,
             'message' => 'Your password has been updated.',
-            'redirect' => url('/login/'),
+            'redirect' => url('/login'),
         ]);
     }
 
@@ -271,7 +271,7 @@ final class AuthApiController
         ServiceCatalogService::clearCookie();
         MailService::welcome($user);
 
-        $redirect = $user['role'] === 'admin' ? url('/admin/dashboard/') : url('/client/dashboard/');
+        $redirect = $user['role'] === 'admin' ? url('/admin/dashboard') : url('/client/dashboard');
         json_response([
             'ok' => true,
             'message' => 'Your email is verified. Welcome to your client dashboard.',
@@ -383,7 +383,7 @@ final class AuthApiController
         json_response([
             'ok' => true,
             'message' => 'Your client account is ready.',
-            'redirect' => url('/client/dashboard/'),
+            'redirect' => url('/client/dashboard'),
         ]);
     }
 

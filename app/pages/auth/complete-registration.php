@@ -30,7 +30,7 @@
     <section class="auth-main">
       <div class="auth-top">
         <a href="<?= url('/') ?>">&larr; Public website</a>
-        <a class="swap" href="<?= url('/login/') ?>">Client sign in &rarr;</a>
+        <a class="swap" href="<?= url('/login') ?>">Client sign in &rarr;</a>
       </div>
 
       <div class="auth-card wide">
@@ -47,13 +47,13 @@
               <?php foreach (array_slice($service['features'], 0, 4) as $feature): ?><li><?= e($feature) ?></li><?php endforeach; ?>
             </ul>
             <div class="summary-actions">
-              <a href="<?= url('/explore-services/') ?>">Change Service</a>
-              <a href="<?= url('/explore-services/') ?>">View service details</a>
+              <a href="<?= url('/explore-services') ?>">Change Service</a>
+              <a href="<?= url('/explore-services') ?>">View service details</a>
             </div>
           </div>
         <?php endif; ?>
 
-        <form class="auth-form" data-api="<?= url('/api/auth/complete-oauth.php') ?>" data-csrf="<?= e(csrf_token()) ?>" data-register-url="<?= url('/register/') ?>" novalidate>
+        <form class="auth-form" data-api="<?= url('/api/auth/complete-oauth.php') ?>" data-csrf="<?= e(csrf_token()) ?>" data-register-url="<?= url('/register') ?>" novalidate>
           <input type="hidden" name="_csrf" value="<?= e(csrf_token()) ?>">
           <div class="form-grid">
             <div class="field span-2">

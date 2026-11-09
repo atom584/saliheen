@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace App\Controllers\Pages\Auth;
 
 use App\Core\View;
-use App\Middleware\GuestMiddleware;
 use App\Services\OAuthService;
 use App\Services\ServiceCatalogService;
 
@@ -15,9 +14,7 @@ final class LoginController
         $selection = ServiceCatalogService::adoptFromRequest();
         $selectionToken = ServiceCatalogService::currentToken();
         $suffix = $selectionToken !== '' ? '?sel=' . urlencode($selectionToken) : '';
-        $registerUrl = url('/register/') . $suffix;
-
-        GuestMiddleware::redirectIfSignedIn();
+        $registerUrl = url('/register') . $suffix;
 
         $googleReady = OAuthService::configured('google');
         $appleReady = OAuthService::configured('apple');

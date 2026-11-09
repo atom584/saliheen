@@ -9,10 +9,13 @@ use App\Models\ClientService;
 
 final class ServiceController
 {
-    public static function handle(): void
+    public static function handle(string $slug = ''): void
     {
         $user = AuthMiddleware::requireClient();
-        $slug = isset($_GET['slug']) && is_string($_GET['slug']) ? strtolower(trim($_GET['slug'])) : '';
+        $slug = strtolower(trim($slug));
+        if ($slug === '') {
+            redirect('/client/dashboard');
+        }
         if (!preg_match('/^[a-z0-9-]{1,80}$/', $slug)) {
             http_response_code(404);
             exit('Service not found.');
