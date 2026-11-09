@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 200" role="img" aria-labelledby="title desc">
+  <title id="title">Saliheen &amp; Associates</title>
+  <desc id="desc">SA monogram in a gold outlined roundel beside the Saliheen and Associates legal consultancy wordmark.</desc>
+  <circle cx="100" cy="100" r="82" fill="#702632" stroke="#d8bd8c" stroke-width="5"/>
+  <path d="M52 67c12-20 32-31 55-31 14 0 27 4 38 13M148 133c-12 20-32 31-55 31-14 0-27-4-38-13" fill="none" stroke="#d8bd8c" stroke-width="3" stroke-linecap="round"/>
+  <text x="100" y="119" text-anchor="middle" fill="#fff" font-family="Georgia, 'Times New Roman', serif" font-size="59" letter-spacing="-5">SA</text>
+  <path d="M220 50h3v100h-3z" fill="#d8bd8c"/>
+  <text x="250" y="91" fill="#fff" font-family="Georgia, 'Times New Roman', serif" font-size="43" letter-spacing="1.2">SALIHEEN &amp; ASSOCIATES</text>
+  <text x="252" y="132" fill="#d8bd8c" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="5">LEGAL CONSULTANCY</text>
+</svg>

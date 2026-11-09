@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" role="img" aria-labelledby="title desc">
+  <title id="title">Legal guidance illustration</title>
+  <desc id="desc">A classical courthouse facade in ivory and burgundy against a black background.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#231f20"/>
+      <stop offset="1" stop-color="#171717"/>
+    </linearGradient>
+    <linearGradient id="stone" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7f3ea"/>
+      <stop offset="1" stop-color="#702632"/>
+    </linearGradient>
+    <pattern id="grain" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="7" r="1" fill="#dfb9bd" opacity=".16"/>
+      <circle cx="22" cy="19" r=".8" fill="#fff" opacity=".1"/>
+    </pattern>
+  </defs>
+  <rect width="960" height="720" fill="url(#background)"/>
+  <rect width="960" height="720" fill="url(#grain)"/>
+  <circle cx="766" cy="148" r="202" fill="none" stroke="#702632" stroke-opacity=".17" stroke-width="2"/>
+  <circle cx="766" cy="148" r="250" fill="none" stroke="#702632" stroke-opacity=".1" stroke-width="2"/>
+  <path d="M120 572h720v28H120z" fill="#702632"/>
+  <path d="M158 534h644v28H158z" fill="url(#stone)"/>
+  <path d="M204 510h552L480 203z" fill="url(#stone)"/>
+  <path d="M260 489 480 246l220 243z" fill="#231f20" opacity=".94"/>
+  <path d="M286 505h388v18H286z" fill="#dfb9bd"/>
+  <g fill="url(#stone)" stroke="#57202a" stroke-width="3">
+    <path d="M284 340h70v164h-70z"/><path d="M397 340h70v164h-70z"/>
+    <path d="M493 340h70v164h-70z"/><path d="M606 340h70v164h-70z"/>
+    <path d="M270 324h98v18h-98z"/><path d="M383 324h98v18h-98z"/>
+    <path d="M479 324h98v18h-98z"/><path d="M592 324h98v18h-98z"/>
+  </g>
+  <path d="M212 504h536v18H212z" fill="#f7f3ea"/>
+  <path d="M175 526h610v8H175z" fill="#702632"/>
+  <path d="M118 604h724v20H118z" fill="#702632"/>
+  <path d="M95 624h770v18H95z" fill="#dfb9bd"/>
+  <path d="M90 646h780v12H90z" fill="#57202a"/>
+  <g fill="none" stroke="#dfb9bd" stroke-width="3" opacity=".82">
+    <path d="M480 107v57M438 126h84M448 126l-20 35h40zM512 126l-20 35h40z"/>
+    <path d="M420 164h56M484 164h56M480 95v12"/>
+  </g>
+  <path d="M90 680h780" stroke="#702632" stroke-opacity=".45" stroke-width="2"/>
+</svg>

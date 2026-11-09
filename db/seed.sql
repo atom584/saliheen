@@ -1,0 +1,96 @@
+-- Service catalogue. Safe to re-run; features for the eight core services are replaced.
+
+INSERT INTO services (id, slug, name, description, icon, status, sort_order) VALUES
+(1, 'legal-matters', 'Legal Matters',
+ 'Professional legal assistance and advisory support for business-related legal matters.',
+ 'i-scale', 'active', 1),
+(2, 'corporate-governance', 'Corporate Governance',
+ 'Structured corporate governance and secretarial support to help businesses maintain organised corporate records and governance practices.',
+ 'i-bank', 'active', 2),
+(3, 'compliance-management', 'Compliance Management',
+ 'Organised compliance supervision to help businesses monitor important regulatory and corporate obligations.',
+ 'i-shield', 'active', 3),
+(4, 'cyber-governance', 'Cyber Governance',
+ 'Practical legal cyber risk and data protection governance support for businesses.',
+ 'i-lock', 'active', 4),
+(5, 'labor-hr-governance', 'Labor & HR Governance',
+ 'Legal support for employment documentation, workplace policies and labour law governance.',
+ 'i-briefcase', 'active', 5),
+(6, 'board-decision-support', 'Board Decision Support',
+ 'Legal risk insights and decision-support documentation to help directors and boards make informed decisions.',
+ 'i-check', 'active', 6),
+(7, 'disciplinary-adr', 'Disciplinary & ADR',
+ 'Structured support for domestic inquiries, disciplinary proceedings and alternative dispute resolution.',
+ 'i-gavel', 'active', 7),
+(8, 'legal-financial-advisory', 'Legal & Financial Advisory',
+ 'Legal and financial documentation support for business transactions, investment-related matters and corporate obligations.',
+ 'i-chart', 'active', 8)
+ON DUPLICATE KEY UPDATE
+  name = VALUES(name),
+  description = VALUES(description),
+  icon = VALUES(icon),
+  status = VALUES(status),
+  sort_order = VALUES(sort_order);
+
+DELETE FROM service_features WHERE service_id BETWEEN 1 AND 8;
+
+INSERT INTO service_features (service_id, feature, sort_order) VALUES
+(1, 'Legal matter assessment.', 1),
+(1, 'Legal advisory requests.', 2),
+(1, 'Legal documentation support.', 3),
+(1, 'Matter progress tracking.', 4),
+(1, 'Supporting document submission.', 5),
+(1, 'Communication with assigned legal professionals.', 6),
+
+(2, 'Board meeting management.', 1),
+(2, 'AGM preparation.', 2),
+(2, 'Meeting notices and agendas.', 3),
+(2, 'Board minutes and resolutions.', 4),
+(2, 'Statutory registers.', 5),
+(2, 'Annual return tracking.', 6),
+(2, 'Corporate governance calendar.', 7),
+
+(3, 'Income tax compliance tracking.', 1),
+(3, 'VAT compliance.', 2),
+(3, 'Customs compliance.', 3),
+(3, 'Licence renewal tracking.', 4),
+(3, 'Regulatory obligation management.', 5),
+(3, 'Quarterly compliance reports.', 6),
+(3, 'Compliance calendar and reminders.', 7),
+
+(4, 'Legal cyber risk assessment.', 1),
+(4, 'Data protection policies.', 2),
+(4, 'Incident response protocols.', 3),
+(4, 'Vendor contract review.', 4),
+(4, 'Cyber risk register.', 5),
+(4, 'Risk mitigation tracking.', 6),
+
+(5, 'Employment contracts.', 1),
+(5, 'HR policies.', 2),
+(5, 'Labour compliance audits.', 3),
+(5, 'Termination advisory records.', 4),
+(5, 'Employment documentation.', 5),
+(5, 'Disciplinary support.', 6),
+
+(6, 'Board decision requests.', 1),
+(6, 'Short legal risk notes.', 2),
+(6, 'Legal opinions.', 3),
+(6, 'Supporting document management.', 4),
+(6, 'Review and approval workflow.', 5),
+(6, 'Decision history.', 6),
+
+(7, 'Domestic inquiries.', 1),
+(7, 'Disciplinary proceedings.', 2),
+(7, 'Mediation.', 3),
+(7, 'Arbitration.', 4),
+(7, 'Hearing schedules.', 5),
+(7, 'Supporting documents.', 6),
+(7, 'Case progress tracking.', 7),
+
+(8, 'Tax planning support.', 1),
+(8, 'Financing documents.', 2),
+(8, 'Foreign investment documentation.', 3),
+(8, 'Cross-border payment documentation.', 4),
+(8, 'Due diligence.', 5),
+(8, 'Directors'' duties.', 6),
+(8, 'Anti-money laundering policies.', 7);

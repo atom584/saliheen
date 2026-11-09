@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#702632" />
+    <title>Client Sign In | Saliheen &amp; Associates</title>
+    <link rel="icon" type="image/svg+xml" href="../images/saliheen-favicon.svg" />
+    <link rel="icon" type="image/png" sizes="64x64" href="../images/saliheen-favicon.png" />
+    <link rel="stylesheet" href="../portal/portal.css" />
+    <link rel="stylesheet" href="../portal/auth.css" />
+    <script src="../portal/auth.js" defer></script>
+    <script src="../portal/demo-auth.js" defer></script>
+  </head>
+  <body class="portal auth-page">
+    <main class="auth">
+      <aside class="auth-aside">
+        <a class="auth-brand" href="../" aria-label="Saliheen &amp; Associates home"><img src="../images/saliheen-brand-light.svg" alt="Saliheen &amp; Associates" /></a>
+        <h1>Your legal governance workspace.</h1>
+        <p>Sign in to follow your company's legal matters, compliance deadlines, board records and documents shared by your legal team.</p>
+        <ul class="auth-points">
+          <li>Compliance calendar, board papers and legal updates in one place.</li>
+          <li>Documents and reports shared securely with your company.</li>
+          <li>Direct communication with your assigned legal team.</li>
+        </ul>
+        <p class="auth-legal">Client information is confidential. Each account is linked to a single company, and access is limited to the users your company authorises. Saliheen &amp; Associates advises on Bangladesh law only.</p>
+      </aside>
+
+      <section class="auth-main">
+        <div class="auth-top">
+          <a href="../index.html">← Public website</a>
+          <a class="swap" href="../register/index.html">New client? Register →</a>
+        </div>
+
+        <div class="auth-card">
+          <span class="secure-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Client access</span>
+          <p class="eyebrow">Client portal</p>
+          <h2>Sign in to your workspace</h2>
+          <p class="lead">Access your company's legal matters, compliance calendar, documents and reports.</p>
+
+          <form class="auth-form" data-demo-login="client" data-demo-redirect="../client/dashboard/index.html">
+            <div class="field">
+              <label for="clientEmail">Business email <em>*</em></label>
+              <input id="clientEmail" name="email" type="email" autocomplete="username" placeholder="name@company.com" required />
+            </div>
+
+            <div class="field">
+              <label for="clientPassword">Password <em>*</em></label>
+              <div class="password-field">
+                <input id="clientPassword" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required />
+                <button class="reveal" type="button" data-target="clientPassword" aria-label="Show password" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="auth-row">
+              <label class="check"><input type="checkbox" name="remember" /> Remember me on this device</label>
+              <a href="mailto:info@nsaliheen.com?subject=Portal%20password%20reset%20request">Forgot password?</a>
+            </div>
+
+            <button class="btn solid auth-submit" type="submit">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+              Sign in
+            </button>
+
+            <p class="form-status" tabindex="-1" role="status"></p>
+          </form>
+
+          <div class="demo-box">
+            <h3>Demo access</h3>
+            <p>Sign in with the sample client account to explore the dashboard. Demo mode runs in your browser with sample data only.</p>
+            <div class="demo-creds">
+              <div><span>Email</span><code>client@deltatextiles.com</code></div>
+              <div><span>Password</span><code>Client@2026</code></div>
+            </div>
+            <button class="btn ghost demo-fill" type="button" data-demo-fill="client">Fill demo credentials</button>
+          </div>
+
+          <div class="auth-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+            <span><b>One account, one company.</b> Portal accounts are linked to a single company. Your company administrator can invite colleagues with restricted permissions.</span>
+          </div>
+        </div>
+
+        <p class="auth-foot">Sessions expire automatically. Registration does not create a lawyer–client relationship. Questions? Email <a href="mailto:info@nsaliheen.com">info@nsaliheen.com</a>.</p>
+      </section>
+    </main>
+  </body>
+</html>
